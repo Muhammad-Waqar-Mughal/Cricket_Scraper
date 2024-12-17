@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Upcoming Matches</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h1>Upcoming Matches</h1>
+    <ul>
+        {% for match in matches %}
+        <li>
+            <strong>{{ match['teams']['t1']['sName'] }} vs {{ match['teams']['t2']['sName'] }}</strong><br>
+            Date: {{ match['time'] }}<br>
+            Venue: {{ match['venue'] }}<br>
+            Series: {{ match['srs'] }}<br>
+            Match Status: {{ match['matchStatus'] }}<br>
+        </li>
+        {% endfor %}
+    </ul>
+    <a href="/">Back to Home</a>
+</body>
+</html>
